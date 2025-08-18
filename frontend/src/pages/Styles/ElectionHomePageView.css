@@ -1,0 +1,236 @@
+/* --- Global Styles & Variables --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #007bff;
+  --primary-hover: #0056b3;
+  --secondary-color: #6c757d;
+  --secondary-hover: #5a6268;
+  --vote-color: #28a745;
+  --vote-hover: #218838;
+  --page-bg: #f8f9fa;
+  --card-bg: #ffffff;
+  --text-dark: #212529;
+  --text-light: #495057;
+  --border-color: #dee2e6;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* --- Main Container --- */
+.election-home-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* --- Election Header --- */
+.election-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Aligns children to the left */
+  text-align: left; /* Ensures text inside children is left-aligned */
+  background: var(--card-bg);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  margin-bottom: 40px;
+}
+
+.election-banner {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+
+.election-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0 0 10px 0;
+}
+
+.election-header .one-line {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+.election-header .description {
+  font-size: 1rem;
+  color: var(--text-light);
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 0 25px 0; /* Removed auto margins to prevent centering */
+}
+
+.time-info {
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+.time-info p {
+  margin: 5px 0;
+}
+
+.time-info strong {
+  color: var(--text-dark);
+}
+
+/* --- Register as Candidate Section --- */
+.register-section {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* --- Candidates Section --- */
+.candidates-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--text-dark);
+}
+
+.candidates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* --- Candidate Card --- */
+.candidate-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  text-align: center;
+  padding: 25px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.candidate-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.candidate-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 15px auto;
+  border: 4px solid var(--border-color);
+}
+
+.candidate-card h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin: 0 0 10px 0;
+}
+
+.candidate-card p {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  line-height: 1.5;
+  margin-bottom: 20px;
+  min-height: 60px; /* Ensures cards have similar height */
+}
+
+/* --- General Button Styles --- */
+.btn-primary, .btn-secondary, .btn-vote {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  color: #fff;
+}
+.btn-secondary:hover {
+  background-color: var(--secondary-hover);
+  transform: translateY(-2px);
+}
+
+.btn-vote {
+  background-color: var(--vote-color);
+  color: #fff;
+  width: 100%;
+}
+.btn-vote:hover {
+  background-color: var(--vote-hover);
+  transform: translateY(-2px);
+}
+
+/* --- Candidate Registration Modal --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modal-content {
+  background: var(--card-bg);
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h2 {
+  font-size: 1.8rem;
+  margin: 0 0 20px 0;
+  text-align: center;
+}
+
+.modal-content textarea {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  resize: vertical;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+  .election-header h1 {
+    font-size: 2rem;
+  }
+  .candidates-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}

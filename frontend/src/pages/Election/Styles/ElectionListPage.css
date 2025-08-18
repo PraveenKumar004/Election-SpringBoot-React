@@ -1,0 +1,204 @@
+/* ./src/pages/ElectionListPage/Styles/ElectionListPage.css */
+
+/* --- CSS Variables for Easy Theming --- */
+:root {
+  --primary-color: #007bff;
+  --primary-hover: #0056b3;
+  --danger-color: #dc3545;
+  --danger-hover: #c82333;
+  --text-primary: #212529;
+  --text-secondary: #6c757d;
+  --bg-light: #f8f9fa;
+  --card-bg: #ffffff;
+  --border-color: #e9ecef;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.08);
+  --font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* --- Base Layout --- */
+.election-page {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--bg-light);
+  font-family: var(--font-family);
+}
+
+.election-list-container {
+  flex: 1; /* Take up remaining space */
+  padding: 40px;
+  overflow-y: auto;
+}
+
+/* --- Header & Create Button --- */
+.election-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 20px;
+}
+
+.election-header h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.create-button {
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.create-button:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+/* --- Election Card Grid --- */
+.election-list {
+  display: grid;
+  /* Responsive grid: creates columns that are at least 450px wide, 
+     but will stretch to fill space. They wrap automatically. */
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 30px;
+}
+
+/* --- Individual Election Card --- */
+.election-card {
+  display: flex;
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  overflow: hidden; /* Ensures image respects the border-radius */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.election-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.election-image {
+  width: 180px;
+  height: auto;
+  object-fit: cover;
+}
+
+.election-details {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.election-details h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 8px 0;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.election-details h3:hover {
+  color: var(--primary-color);
+}
+
+.election-details p {
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 4px 0;
+}
+
+/* --- Action Icons --- */
+.icon-buttons {
+  margin-top: auto; /* Pushes icons to the bottom of the card */
+  padding-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+.icon {
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.icon:hover {
+  transform: scale(1.2);
+}
+
+.edit-icon:hover {
+  color: var(--primary-color);
+}
+
+.delete-icon:hover {
+  color: var(--danger-color);
+}
+
+/* --- Loading and Empty States --- */
+.loading-message, .error-message, .empty-message {
+  text-align: center;
+  font-size: 18px;
+  color: var(--text-secondary);
+  padding: 50px;
+}
+
+.error-message {
+    color: var(--danger-color);
+}
+
+
+/* ./src/pages/ElectionListPage/Styles/ElectionListPage.css */
+
+/* ... (keep all your existing styles) ... */
+
+/* --- Base Layout --- */
+.election-page {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--bg-light);
+  font-family: var(--font-family);
+}
+
+/* --- THIS IS THE KEY FIX --- */
+.election-list-container {
+  flex: 1; 
+  padding: 40px;
+  overflow-y: auto;
+ margin-left: calc(var(--sidebar-width) + 20px);  /* Use the same variable as the sidebar's width */
+}
+
+/* ... (keep all your other styles like .election-header, .election-card, etc.) ... */
+
+
+/* --- Responsive Fixes for the page content --- */
+@media (max-width: 768px) {
+  .election-page {
+    flex-direction: column; /* Stack sidebar and content vertically */
+  }
+
+  .election-list-container {
+    margin-left: 10px; /* Remove the margin on smaller screens */
+    padding: 20px;
+  }
+
+  /* ... (keep your other media query styles) ... */
+}
