@@ -7,5 +7,7 @@ import com.firstproject.entities.WinnerEntity;
 import com.firstproject.entities.CandidateEntity;
 
 public interface WinnerRepository extends JpaRepository <WinnerEntity, Integer> {
+
+    Object save(CandidateEntity candidate);
 	
 }

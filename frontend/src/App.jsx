@@ -31,7 +31,7 @@ function App() {
     <Route path="/election/view/:id" element={<ElectionViewPage />} />
     <Route path='/participated' element={<ParticipatedElections/>}/>
     <Route path="/participated/:id" element={<ParticipatedElectionView />} />
-    <Route path="/winner" element={<ElectionWinnerPage/>}/>
+    <Route path="/winners" element={<ElectionWinnerPage/>}/>
   </Routes>
   </BrowserRouter>
   </>
